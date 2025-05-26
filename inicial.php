@@ -1,5 +1,8 @@
 <?php
     session_start();
+    if (!isset($_SESSION['usuario'])) {
+        header("Location: index.php");
+    }
     if (!isset($_SESSION['nomes'])) {
         $emails = json_decode(file_get_contents("email.json"), true);
         $senhas = json_decode(file_get_contents("senha.json"), true);
